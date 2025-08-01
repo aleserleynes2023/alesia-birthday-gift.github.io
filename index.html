@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 19th Birthday, Alesia! 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Intro Overlay -->
+  <div id="introOverlay" class="intro-overlay">
+    <div class="intro-box">
+      <h2 class="intro-title">A Birthday Surprise Awaits...</h2>
+      <button id="openMeBtn" class="open-me-btn">Open Me 💌</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" class="main-content hidden">
+    <div class="container">
+      <button class="music-btn" id="musicBtn" title="Mute/Unmute Music">🔈</button>
+      <h1>Happy 19th Birthday, Alesia! 🎉</h1>
+      <div class="intro">
+        Wishing the most wonderful lady the happiest of birthdays! <br>
+        I made this little site just for you, with love. 💖
+      </div>
+      <div class="button-row">
+        <button class="main-btn" data-section="1">1</button>
+        <button class="main-btn" data-section="2">2</button>
+        <button class="main-btn" data-section="3">3</button>
+      </div>
+      <!-- Content sections -->
+      <div id="section1" class="section active">
+        <img src="flower.jpeg"
+          alt="Bouquet of flowers" class="bouquet-img" />
+        <div class="bouquet-msg">A bouquet of love, just for you!</div>
+        <div style="color:#6a4c93;">May your day be as beautiful and bright as these flowers.</div>
+      </div>
+      <div id="section2" class="section">
+        <div class="letter">
+          Dear Alesia,<br><br>
+          From the moment we met, my life has been brighter, warmer, and so much sweeter.<br><br>
+          Thank you for being my sunshine, my confidant, and my best friend.<br>
+          I love you more than words can say.<br><br>
+          Happy Birthday, my love! 💗<br><br>
+          Yours always,<br>
+          Mr. Aleser Lance L. Leynes
+        </div>
+        <div class="voice-message">
+          <button id="playVoiceBtn" class="voice-btn">🎤 Listen to my voice</button>
+          <audio id="voiceAudio" src="voice.mp3"></audio>
+        </div>
+      </div>
+      <div id="section3" class="section">
+        <div class="collage">
+          <img src="Pic1.jpeg" alt="Collage Pic 1" />
+          <img src="Pic2.jpeg" alt="Collage Pic 2" />
+          <img src="Pic3.jpeg" alt="Collage Pic 3" />
+          <img src="Pic4.jpeg" alt="Collage Pic 4" />
+        </div>
+        <div style="margin-top:1rem; color:#6a4c93; font-size:1.04rem;">A collection of the beautiful collage I made of us and you 💞</div>
+      </div>
+      <!-- Optional background music -->
+      <audio id="bgMusic" loop autoplay>
+        <source src="backgroundmusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <!-- Collage Modal -->
+  <div id="collageModal" class="collage-modal">
+    <span class="collage-modal-close" id="collageModalClose">&times;</span>
+    <img id="collageModalImg" src="" alt="Collage Large View" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

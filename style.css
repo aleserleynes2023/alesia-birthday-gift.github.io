@@ -1,0 +1,305 @@
+/* --- Collage Modal styles --- */
+.collage-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(40, 30, 60, 0.55);
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+.collage-modal.active {
+  display: flex;
+  opacity: 1;
+  animation: modalfadein 0.3s;
+}
+@keyframes modalfadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.collage-modal img {
+  max-width: 80vw;
+  max-height: 75vh;
+  border-radius: 18px;
+  box-shadow: 0 2px 32px rgba(170, 170, 200, 0.23);
+  background: #fff;
+  padding: 8px;
+}
+.collage-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 52px;
+  font-size: 2.7rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-title);
+  z-index: 1;
+  transition: color 0.2s;
+}
+.collage-modal-close:hover, .collage-modal-close:focus {
+  color: var(--primary);
+}
+
+
+/* --- Overlay styles --- */
+.intro-overlay {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: var(--bg-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s;
+}
+.intro-box {
+  background: rgba(255,255,255,0.90);
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(170, 170, 200, 0.13);
+  padding: 2.2rem 2rem;
+  text-align: center;
+  animation: popup 1.2s;
+}
+.intro-title {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1.3rem;
+}
+.open-me-btn {
+  background: var(--button);
+  color: var(--text-main);
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7em 2em;
+  box-shadow: 0 2px 12px rgba(170,170,200,0.12);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.open-me-btn:hover, .open-me-btn:focus {
+  background: var(--primary);
+  color: var(--font-body);
+  transform: scale(1.07);
+}
+
+/* Hide main content initially */
+.main-content.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Pop-up animation */
+@keyframes popup {
+  0% { opacity: 0; transform: scale(0.85);}
+  80% { opacity: 1; transform: scale(1.03);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+/* Fade in main content */
+.main-content.fadein {
+  display: block;
+  animation: fadein 1.2s;
+  opacity: 1;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Listen to my voice styles --- */
+.voice-message {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.voice-btn {
+  background: var(--button);
+  color: var(--text-main);
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5em 1.5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(170,170,200,0.10);
+  transition: background 0.3s, transform 0.3s;
+}
+.voice-btn:hover, .voice-btn:focus {
+  background: var(--button-hover);
+  color: var(--font-body);
+  transform: scale(1.04);
+}
+.voice-message audio {
+  display: none;
+}
+
+/* --- Rest of your existing CSS below this --- */
+:root {
+  --bg-gradient: linear-gradient(135deg, #ffe0ec 0%, #e0f7fa 100%);
+  --primary: #ffb6b9;
+  --secondary: #f7d6e0;
+  --button: #a5dee5;
+  --button-hover: #ffb6b9;
+  --text-main: #6a4c93;
+  --font-title: 'Pacifico', cursive;
+  --font-body: 'Quicksand', sans-serif;
+}
+/* ... rest of your CSS ... */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-gradient);
+  font-family: var(--font-body);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 480px;
+  width: 95vw;
+  margin: 2rem auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 24px;
+  box-shadow: 0 6px 32px rgba(170, 170, 200, 0.10);
+  padding: 2rem 1rem 2.5rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-family: var(--font-title);
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  text-align: center;
+  letter-spacing: 1px;
+}
+.intro {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.main-btn {
+  background: var(--button);
+  border: none;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  font-size: 2rem;
+  color: var(--text-main);
+  font-family: var(--font-title);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(170, 170, 200, 0.12);
+  transition: background .3s, transform .3s;
+  outline: none;
+}
+.main-btn:focus, .main-btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.08);
+}
+
+.section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+  text-align: center;
+  margin-top: 0.5rem;
+  min-height: 220px;
+}
+.section.active {
+  display: block;
+  opacity: 1;
+  animation: fadein 0.7s;
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(25px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.bouquet-img {
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(255,182,185,0.22);
+  margin-bottom: 1rem;
+}
+.bouquet-msg {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.letter {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: #a879b6;
+  background: var(--secondary);
+  border-radius: 16px;
+  padding: 1.2rem;
+  margin: 0 auto 0.7rem auto;
+  max-width: 90%;
+  box-shadow: 0 1px 8px rgba(170, 170, 200, 0.08);
+  white-space: pre-line;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  justify-content: center;
+  margin-top: 0.7rem;
+}
+.collage img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 1px 8px rgba(255,182,185,0.18);
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+.music-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--secondary);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(170, 170, 200, 0.10);
+  outline: none;
+  transition: background .3s;
+  z-index: 3;
+}
+.music-btn:hover, .music-btn:focus {
+  background: var(--button-hover);
+  color: var(--text-main);
+}
+
+@media (max-width: 500px) {
+  h1 { font-size: 1.7rem;}
+  .container { padding: 1.2rem 0.2rem;}
+  .main-btn { width: 54px; height: 54px; font-size: 1.4rem;}
+  .section { min-height: 120px;}
+  .letter { font-size: 1rem;}
+}
